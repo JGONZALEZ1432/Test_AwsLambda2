@@ -12,13 +12,7 @@ class CreateItemUseCase implements ICreateItemUseCase {
   }
 
   async execute(id: string, brand: string, model: string, series: string, color: string): Promise<any> {
-    const item = await this.dataAccessLayer.createItem(id, brand, model, series, color);
-
-    if (!item) {
-      throw new Error('Item not found');
-    }
-
-    return item;
+    await this.dataAccessLayer.createItem(id, brand, model, series, color);
   }
 }
 
