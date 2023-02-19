@@ -13,13 +13,7 @@ class DynamoDataAccessLayer implements IDataAccessLayer {
   async createItem(id: string, brand: string, model: string, series: string, color: string ): Promise<any> {
     const params = {
       TableName: this.tableName,
-      Item: {
-        id: { S: id },
-        brand: { S: brand },
-        model: { S: model },
-        series: { S: series },
-        color: { S: color },
-      },
+      Item :{'id':id,'brand':brand,'model':model,'series':series,'color':color}
     };
      await this.dynamoClient.put(params).promise();
   }
